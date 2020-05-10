@@ -17,27 +17,31 @@ this.state =  {
 handelSubmit = e => {
 e.preventDefault();
 const {Enrollment,CollegeCode,BranchCode,Mobile,email} = this.props.values;
-if (Enrollment.length < 12 || Enrollment.length > 12 ) 
+if (Enrollment.length < 12 || Enrollment.length > 12 )
 {
-	alert("enter a valid 12 digit Enrollment ");
+	alert("enter a valid 12 digit Enrollment! ");
 	return;
 }
-else if (CollegeCode.length < 4 || CollegeCode.length > 4) 
+else if (CollegeCode.length < 4 || CollegeCode.length > 4)
 {
-	alert("enter a CollegeCode of 4 digit");
+	alert("enter a College Code of 4 digit");
 	return;
 }
-else if (BranchCode.length < 2 || BranchCode.length > 2) 
+else if (BranchCode.length < 2 || BranchCode.length > 2)
 {
-	alert("enter a BranchCode of 2 digits");
-	return;
+
+   if(BranchCode.value === 0)
+	 {
+			alert("Opps! Invalid Code, enter a valid Branch Code of 2 digit");
+	 		return;
+	 }
 }
 else if (!isInt(Mobile,{min : 1111111111, max: 9999999999}))
 {
   alert("enter mobile_no of valid digits only");
   return;
 }
-else if (!isEmail(email)) 
+else if (!isEmail(email))
 {
 	alert("enter email in valid form");
 	return;
